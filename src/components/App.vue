@@ -8,7 +8,7 @@
           <input v-model="taskText" type="text" placeholder="O que você precisa fazer?">
           <button type="submit">ENVIAR</button>
 
-        </form>
+        </form>  
       </div>
 
       <div class="tasks">
