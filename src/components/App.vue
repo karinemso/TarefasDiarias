@@ -6,7 +6,7 @@
         <form action="" @submit.prevent="addTask">
 
           <input v-model="taskText" type="text" placeholder="O que você precisa fazer?">
-          <button type="submit">ENVIAR</button>
+          <button type="submit">Enviar</button>
 
         </form>  
       </div>
@@ -60,7 +60,7 @@ export default {
       this.tasks[index].completed = !this.tasks[index].completed;
     },
     deleteTask(index) {
-      this.tasks = this.tasks.splice(index, 1).length > 0 ? this.tasks.splice(index, 1) : []
+        if(this.tasks.splice(index, 1).length > 0){this.tasks.splice(index, 0)} 
       localStorage.setItem('tasks', JSON.stringify(this.tasks))
     }
     ,
@@ -98,6 +98,10 @@ export default {
 <!-- Global CSS -->
 
 <style>
+
+
+
+
 code {
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
   font-size: 0.9em;
@@ -115,10 +119,12 @@ code::after {
 <!-- It only affect current component -->
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Josefin Sans';
 }
 
 
@@ -167,6 +173,10 @@ body {
   justify-content: space-between;
 }
 
+
+.tasks p {
+  color: #D7B3F3;
+}
 .tasks ul li span {
   cursor: pointer;
 }
@@ -186,15 +196,15 @@ body {
 }
 
 .inputs h1 {
-  color: black;
+  color: #D7B3F3;
 }
 
  input {
   width: 90%;
   padding: 1em;
   border-radius: 10px;
-  background-color: black;
-  color: dimgrey;
+  background-color: #D7B3F3;
+  color: #2D033B;
   border: none;
 }
 
@@ -204,18 +214,21 @@ body {
 }
 
 button {
-  background-color: black;
-  color: #C147E9;
+  background-color: #D7B3F3;
+  color: #2D033B;
   border-radius: 10px;
   border: none;
   padding: 1em;
+  font-weight: 500;
+  font-family: 'Josefin sans';
+  cursor: pointer;
 
 
 }
 
 .inputs button:hover {
-  background-color: #C147E9;
-  color: black;
+  background-color: #2D033B;
+  color: #D7B3F3;
 
 
 }
